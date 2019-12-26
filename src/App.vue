@@ -9,13 +9,13 @@
 </template>
 
 <script>
-import axios from 'axios';
-import Todos from './components/Todos';
-import Header from './components/layout/Header';
-import AddTodo from './components/AddTodo';
+import axios from "axios";
+import Todos from "./components/Todos";
+import Header from "./components/layout/Header";
+import AddTodo from "./components/AddTodo";
 
 export default {
-  name: 'app',
+  name: "app",
   components: {
     Todos,
     Header,
@@ -30,21 +30,21 @@ export default {
     deleteTodo(id) {
       axios
         .delete(`https://jsonplaceholder.typicode.com/todos/${id}`)
-        .then(() => (this.todos = this.todos.filter((todo) => todo.id !== id)))
-        .catch((err) => console.log(err));
+        .then(() => (this.todos = this.todos.filter(todo => todo.id !== id)))
+        .catch(err => console.log(err));
     },
     addTodo(newTodo) {
       axios
-        .post('https://jsonplaceholder.typicode.com/todos', { ...newTodo })
-        .then((res) => (this.todos = [...this.todos, res.data]))
-        .catch((err) => console.log(err));
+        .post("https://jsonplaceholder.typicode.com/todos", { ...newTodo })
+        .then(res => (this.todos = [...this.todos, res.data]))
+        .catch(err => console.log(err));
     }
   },
   created() {
     axios
-      .get('https://jsonplaceholder.typicode.com/todos?_limit=8')
-      .then((res) => (this.todos = res.data))
-      .catch((error) => console.log(error));
+      .get("https://jsonplaceholder.typicode.com/todos?_limit=8")
+      .then(res => (this.todos = res.data))
+      .catch(error => console.log(error));
   }
 };
 </script>
@@ -66,7 +66,6 @@ body {
   border: none;
   background: #555;
   color: #fff;
-  padding: 7px 20px;
   cursor: pointer;
 }
 
