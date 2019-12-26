@@ -7,14 +7,13 @@
 </template>
 
 <script>
-import TodoItem from './TodoItem';
+import TodoItem from "./TodoItem";
 export default {
-  name: 'Todos',
+  name: "Todos",
   components: {
     TodoItem
   },
-  props: ['todos']
+  props: ["todos"]
 };
 </script>
 
-<style scoped></style>
